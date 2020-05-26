@@ -6555,6 +6555,7 @@ static void *janus_videoroom_handler(void *data) {
 					}
 				}
 
+/*
 				JANUS_LOG(LOG_INFO, "QQ-START PROBLEM SECTION\n");
 				
 				if(subscriber)
@@ -6566,7 +6567,7 @@ static void *janus_videoroom_handler(void *data) {
 						JANUS_LOG(LOG_INFO, "QQ-subscriber->room_id_str = [%s]\n", subscriber->room_id_str);
 						
 						if(subscriber->room->do_svc) {
-							/* Also check if the viewer is trying to configure a layer change */
+							
 							JANUS_LOG(LOG_INFO, "QQ-do_svc called\n");
 
 							if(spatial) {
@@ -6575,7 +6576,7 @@ static void *janus_videoroom_handler(void *data) {
 									JANUS_LOG(LOG_WARN, "Spatial layer higher than 1, it will be ignored if using EnabledByFlag_2SL3TL\n");
 								}
 								if(spatial_layer == subscriber->spatial_layer) {
-									/* No need to do anything, we're already getting the right spatial layer, so notify the user */
+									
 									json_t *event = json_object();
 									json_object_set_new(event, "videoroom", json_string("event"));
 									json_object_set_new(event, "room", string_ids ? json_string(subscriber->room_id_str) : json_integer(subscriber->room_id));
@@ -6583,7 +6584,7 @@ static void *janus_videoroom_handler(void *data) {
 									gateway->push_event(msg->handle, &janus_videoroom_plugin, NULL, event, NULL);
 									json_decref(event);
 								} else if(spatial_layer != subscriber->target_spatial_layer) {
-									/* Send a FIR to the new RTP forward publisher */
+									
 									janus_videoroom_reqpli(publisher, "Need to downscale spatially");
 								}
 								subscriber->target_spatial_layer = spatial_layer;
@@ -6594,7 +6595,7 @@ static void *janus_videoroom_handler(void *data) {
 									JANUS_LOG(LOG_WARN, "Temporal layer higher than 2, will probably be ignored\n");
 								}
 								if(temporal_layer == subscriber->temporal_layer) {
-									/* No need to do anything, we're already getting the right temporal layer, so notify the user */
+									
 									json_t *event = json_object();
 									json_object_set_new(event, "videoroom", json_string("event"));
 									json_object_set_new(event, "room", string_ids ? json_string(subscriber->room_id_str) : json_integer(subscriber->room_id));
@@ -6619,7 +6620,7 @@ static void *janus_videoroom_handler(void *data) {
 				}
 
 				JANUS_LOG(LOG_INFO, "QQ-END PROBLEM SECTION\n");
-
+*/
 
 				event = json_object();
 				json_object_set_new(event, "videoroom", json_string("event"));

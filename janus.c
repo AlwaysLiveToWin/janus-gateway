@@ -708,6 +708,7 @@ janus_session *janus_session_find(guint64 session_id) {
 }
 
 void janus_session_notify_event(janus_session *session, json_t *event) {
+	JANUS_LOG(LOG_VERB, "QQ - janus_session_notify_event\n");
 	if(session != NULL && !g_atomic_int_get(&session->destroyed)) {
 		janus_request *source = janus_session_get_request(session);
 		if(source != NULL && source->transport != NULL) {

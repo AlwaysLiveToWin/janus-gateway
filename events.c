@@ -85,6 +85,8 @@ gboolean janus_events_is_enabled(void) {
 }
 
 void janus_events_notify_handlers(int type, int subtype, guint64 session_id, ...) {
+
+	JANUS_LOG(LOG_VERB, "QQ - janus_events_notify_handlers\n");
 	/* This method has a variable list of arguments, depending on the event type */
 	va_list args;
 	va_start(args, session_id);
